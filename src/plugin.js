@@ -9,7 +9,9 @@ if (plugin.getAttribute('isRunning') === 'true') {
 
 function reject() {
   reloadScrollBars();
-  document.getElementById('bckd').style.visibility = 'hidden';
+  console.log('reject');
+  document.getElementById('mod').style.visibility = 'hidden';
+  document.getElementById('back').style.visibility = 'hidden';
 }
 
 function accept() {
@@ -17,28 +19,33 @@ function accept() {
   // script.setAttribute('src', 'collect.js')
 
   // document.body.appendChild(script);
+  console.log('Hello from collect.js!');
+
   reloadScrollBars();
-  console.log('accept');
-  document.getElementById('bckd').style.visibility = 'hidden';
+  document.getElementById('mod').style.visibility = 'hidden';
+  document.getElementById('back').style.visibility = 'hidden';
 }
 
 function reloadScrollBars() {
   document.documentElement.style.overflow = 'auto';
+  document.getElementById('mySidebar').style.overflow = 'auto';
 }
 
 function unloadScrollBars() {
   document.documentElement.style.overflow = 'hidden';
+  document.getElementById('mySidebar').style.overflow = 'hidden';
 }
 
 function openModal() {
-  document.getElementById('bckd').style.visibility = 'visible';
+  document.getElementById('back').style.visibility = 'visible';
+  document.getElementById('mod').style.visibility = 'visible';
   unloadScrollBars();
 }
 
 function createModal() {
   const backdrop = document.createElement('div');
 
-  backdrop.id = 'bckd';
+  backdrop.id = 'back';
 
   backdrop.style.cssText = `
     position: fixed;
@@ -56,6 +63,7 @@ function createModal() {
   const dialog = document.createElement('div');
 
   dialog.classList.add('modal');
+  dialog.id = 'mod';
 
   dialog.innerHTML = `
     <div style="
@@ -121,3 +129,4 @@ function createButton() {
 
   document.body.appendChild(triangleBtn);
 }
+
