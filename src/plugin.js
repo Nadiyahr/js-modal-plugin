@@ -1,7 +1,6 @@
 'use strict';
 
 const plugin = document.getElementById('idward-plugin');
-let freezeClic = false;
 
 if (plugin.getAttribute('isRunning') === 'true') {
   createButton();
@@ -33,14 +32,12 @@ function reloadScrollBars() {
   document.documentElement.style.overflow = 'auto';
   document.getElementById('mySidebar').style.overflow = 'auto';
   document.getElementById('mySidebar').style.pointerEvents = 'auto';
-  freezeClic = !freezeClic;
 }
 
 function unloadScrollBars() {
   document.documentElement.style.overflow = 'hidden';
   document.getElementById('mySidebar').style.overflow = 'hidden';
   document.getElementById('mySidebar').style.pointerEvents = 'none';
-  freezeClic = !freezeClic;
 }
 
 function openModal() {
@@ -51,7 +48,9 @@ function openModal() {
 
 function createModal() {
   const backdrop = document.createElement('div');
+
   backdrop.id = 'bckd';
+
   backdrop.style.cssText = `
     position: fixed;
     width: 100%;
@@ -64,46 +63,54 @@ function createModal() {
     z-index: 5;
     visibility: hidden;
   `;
+
   const dialog = document.createElement('div');
+
   dialog.classList.add('modal');
   dialog.id = 'mod01';
+
   dialog.innerHTML = `
-    <button class="w3-button w3-teal" id="acc">Accept</button>
-    <button class="w3-button w3-red" id="rej">Reject</button>
+    <div style="
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      display: flex;
+      justify-content: space-around;
+    ">
+      <button class="w3-button w3-black" id="acc">Accept</button>
+      <button class="w3-button w3-black" id="rej">Reject</button>
+    </div>
   `;
+
   dialog.style.cssText = `
-    visibility: hidden;
+    resize: both;
+    overflow: auto;
+    min-width: 400px;
+    min-height: 160px;
     position: fixed;
-    position: absolut;
-    z-index: 6;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    heigth: 200px;
     overflow: auto;
     padding: 30px;
-    display: flex;
-    justify-content: space-around;
-    background-color: #ffffff;
-    border: 1px solid #999;
+    background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    *border: 1px solid #999;
-    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
+    z-index: 6;
+    visibility: hidden;
   `;
 
   document.body.appendChild(backdrop);
   backdrop.appendChild(dialog);
 
-
   const rejBtn = document.getElementById('rej');
+
   rejBtn.addEventListener('click', reject);
+
   const accBtn = document.getElementById('acc');
+
   accBtn.addEventListener('click', accept);
   console.log(dialog);
 }
@@ -116,8 +123,8 @@ function createButton() {
   triangleBtn.style.cssText = `
     border: none;
     background-color: transparent;
-    border-left: 100px solid #0645ad;
-    border-top: 100px solid transparent;
+    border-left: 80px solid #0645ad;
+    border-top: 80px solid transparent;
     position: fixed;
     bottom: 0;
     left: 0;
