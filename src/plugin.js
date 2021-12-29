@@ -9,40 +9,29 @@ if (plugin.getAttribute('isRunning') === 'true') {
 
 function reject() {
   reloadScrollBars();
-  console.log('reject');
-  document.getElementById('mod01').style.visibility = 'hidden';
   document.getElementById('bckd').style.visibility = 'hidden';
 }
 
 function accept() {
   // const script = document.createElement('script');
-  // script.type = 'text/javascript';
-  // script.src = './collect.js';
   // script.setAttribute('src', 'collect.js')
 
   // document.body.appendChild(script);
-  // console.log(script);
   reloadScrollBars();
   console.log('accept');
-  document.getElementById('mod01').style.visibility = 'hidden';
   document.getElementById('bckd').style.visibility = 'hidden';
 }
 
 function reloadScrollBars() {
   document.documentElement.style.overflow = 'auto';
-  document.getElementById('mySidebar').style.overflow = 'auto';
-  document.getElementById('mySidebar').style.pointerEvents = 'auto';
 }
 
 function unloadScrollBars() {
   document.documentElement.style.overflow = 'hidden';
-  document.getElementById('mySidebar').style.overflow = 'hidden';
-  document.getElementById('mySidebar').style.pointerEvents = 'none';
 }
 
 function openModal() {
   document.getElementById('bckd').style.visibility = 'visible';
-  document.getElementById('mod01').style.visibility = 'visible';
   unloadScrollBars();
 }
 
@@ -67,7 +56,6 @@ function createModal() {
   const dialog = document.createElement('div');
 
   dialog.classList.add('modal');
-  dialog.id = 'mod01';
 
   dialog.innerHTML = `
     <div style="
@@ -112,7 +100,6 @@ function createModal() {
   const accBtn = document.getElementById('acc');
 
   accBtn.addEventListener('click', accept);
-  console.log(dialog);
 }
 
 function createButton() {
