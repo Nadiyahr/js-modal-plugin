@@ -1,3 +1,13 @@
 {
-  "extends": "@mate-academy/linthtml-config"
+  "extends": "@mate-academy/linthtml-config",
+  "rules": {
+    "tag-bans": false,
+    "indent-style": false,
+    "attr-bans": false,
+    "input-req-label": false,
+    "attr-new-line": false,
+    "indent-width": false,
+    "img-req-alt": false,
+    "attr-name-style": false
+  }
 }

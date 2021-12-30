@@ -1,17 +1,11 @@
 'use strict';
 
 const plugin = document.getElementById('idward-plugin');
+let isOpen = false;
 
 if (plugin.getAttribute('isRunning') === 'true') {
   createButton();
   createModal();
-}
-
-function reject() {
-  reloadScrollBars();
-  console.log('reject');
-  document.getElementById('mod').style.visibility = 'hidden';
-  document.getElementById('back').style.visibility = 'hidden';
 }
 
 function accept() {
@@ -21,25 +15,18 @@ function accept() {
   // document.body.appendChild(script);
   console.log('Hello from collect.js!');
 
-  reloadScrollBars();
-  document.getElementById('mod').style.visibility = 'hidden';
-  document.getElementById('back').style.visibility = 'hidden';
+  toggleModal();
 }
 
-function reloadScrollBars() {
-  document.documentElement.style.overflow = 'auto';
-  document.getElementById('mySidebar').style.overflow = 'auto';
-}
+function toggleModal() {
+  isOpen = !isOpen;
+  const visibility = isOpen ? 'visible' : 'hidden';
+  const overflow = isOpen ? 'hidden' : 'auto';
 
-function unloadScrollBars() {
-  document.documentElement.style.overflow = 'hidden';
-  document.getElementById('mySidebar').style.overflow = 'hidden';
-}
-
-function openModal() {
-  document.getElementById('back').style.visibility = 'visible';
-  document.getElementById('mod').style.visibility = 'visible';
-  unloadScrollBars();
+  document.getElementById('back').style.visibility = visibility;
+  document.getElementById('mod').style.visibility = visibility;
+  document.documentElement.style.overflow = overflow;
+  document.getElementById('mySidebar').style.overflow = overflow;
 }
 
 function createModal() {
@@ -103,7 +90,7 @@ function createModal() {
 
   const rejBtn = document.getElementById('rej');
 
-  rejBtn.addEventListener('click', reject);
+  rejBtn.addEventListener('click', toggleModal);
 
   const accBtn = document.getElementById('acc');
 
@@ -113,7 +100,7 @@ function createModal() {
 function createButton() {
   const triangleBtn = document.createElement('triangleBtn');
 
-  triangleBtn.onclick = openModal;
+  triangleBtn.onclick = toggleModal;
 
   triangleBtn.style.cssText = `
     border: none;
@@ -129,4 +116,3 @@ function createButton() {
 
   document.body.appendChild(triangleBtn);
 }
-
