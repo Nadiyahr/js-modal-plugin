@@ -11,6 +11,7 @@
 - ESLint
 - pre-commit hook(husky)
 - deploy script(gh-pages)
+- parcel-plugin-static-files-copy
 
 ## Description
 

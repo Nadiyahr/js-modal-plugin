@@ -10,6 +10,7 @@ if (plugin.getAttribute('isRunning') === 'true') {
 
 function accept() {
   const script = document.createElement('script');
+
   script.src = './collect.js';
   document.body.appendChild(script);
 
