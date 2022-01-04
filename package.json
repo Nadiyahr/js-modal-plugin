@@ -31,9 +31,14 @@
     "gulp-htmllint": "0.0.16",
     "node-sass": "^4.14.1",
     "parcel": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "stylelint": "^13.5.0",
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-scss": "^3.17.2"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
   },
   "browserslist": [
     "last 2 versions"

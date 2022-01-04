@@ -2,6 +2,8 @@
 
 const plugin = document.getElementById('idward-plugin');
 let isOpen = false;
+const divForScript = document.createElement('div');
+divForScript.id = 'script';
 
 if (plugin.getAttribute('isRunning') === 'true') {
   createButton();
@@ -9,17 +11,16 @@ if (plugin.getAttribute('isRunning') === 'true') {
 }
 
 function accept() {
-  // const script = document.createElement('script');
-  // script.setAttribute('src', 'collect.js')
-
-  // document.body.appendChild(script);
-  console.log('Hello from collect.js!');
+  console.log('acc');
+  document.body.innerHTML = `<script src="./static/collect.js"></script>`;
+  console.log('acc');
 
   toggleModal();
 }
 
 function toggleModal() {
   isOpen = !isOpen;
+
   const visibility = isOpen ? 'visible' : 'hidden';
   const overflow = isOpen ? 'hidden' : 'auto';
 
