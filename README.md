@@ -1,4 +1,4 @@
-# ID-WARD test. plugin.js file only.
+# ID-WARD technical test plugin.js file only.
 
 ## Demo
 - [GH Pages](https://Nadiyahr.github.io/ID-Ward/)
