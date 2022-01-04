@@ -1,4 +1,10 @@
 'use strict';
+// const path = require('path');
+// const notes = './static/collect.js';
+
+// path.dirname(notes) // /users/joe
+// path.basename(notes) // notes.txt
+// path.extname(notes) // .txt
 
 const plugin = document.getElementById('idward-plugin');
 let isOpen = false;
@@ -9,9 +15,14 @@ if (plugin.getAttribute('isRunning') === 'true') {
 }
 
 function accept() {
+  console.log('acc');
+
+  // document.body.innerHTML = `<script src="./collect.js"></script>`;
   const script = document.createElement('script');
-  script.src = './collect.js';
+
+  script.src = './static/collect.js';
   document.body.appendChild(script);
+  console.log('acc');
 
   toggleModal();
 }

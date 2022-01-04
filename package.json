@@ -37,8 +37,8 @@
     "stylelint-scss": "^3.17.2"
   },
   "staticFiles": {
-    "staticPath": "static",
-    "staticOutPath": "static"
+    "staticPath": "src/static",
+    "staticOutPath": "./static"
   },
   "browserslist": [
     "last 2 versions"
