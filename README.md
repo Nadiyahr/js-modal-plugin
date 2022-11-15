@@ -1,7 +1,7 @@
 # ID-WARD technical test plugin.js file only.
 
 ## Demo
-- [GH Pages](https://Nadiyahr.github.io/ID-Ward/)
+- [GH Pages](https://Nadiyahr.github.io/js-modal-plugin/)
 
 ## Features
 
